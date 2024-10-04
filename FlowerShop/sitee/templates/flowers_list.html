@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Flower List{% endblock %}
+
+{% block content %}
+    <h2>Available Flowers</h2>
+    <ul>
+        {% for flower in flowers %}
+            <li>
+                <h3>{{ flower.name }}</h3>
+                <p>{{ flower.description }}</p>
+                <p>Price: ${{ flower.price }}</p>
+                <a href="{% url 'add_to_cart' flower.id %}">Add to Cart</a>
+            </li>
+        {% empty %}
+            <p>No flowers available.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -12,4 +12,4 @@ def add_to_cart(request, flower_id):
 def cart_view(request):
     cart_items = Cart.objects.filter(user=request.user)
     total_price = sum(item.get_total() for item in cart_items)
-    return render(request, 'cart/cart_view.html', {'cart_items': cart_items, 'total_price': total_price})
+    return render(request, 'templates/cart_view.html', {'cart_items': cart_items, 'total_price': total_price})

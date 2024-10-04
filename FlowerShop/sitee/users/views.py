@@ -4,7 +4,7 @@ from .forms import UserRegistrationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
-# View for user registration
+
 def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -16,9 +16,8 @@ def register(request):
             return redirect('profile')
     else:
         form = UserRegistrationForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'templates/register.html', {'form': form})
 
-# View for user profile
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    return render(request, 'templates/profile.html')
